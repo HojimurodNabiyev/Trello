@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+
+
+body {
+  background: linear-gradient(96deg, rgb(111, 44, 255) 0%, rgb(148, 70, 211) 50%, rgb(188, 58, 232) 100%);
+  user-select: none;
+  font-family: "Inter", sans-serif;
+  overflow-y: hidden;
+}
+
+body.body--dark {
+  background: linear-gradient(96deg, rgb(60, 10, 170) 0%, rgb(109, 27, 156) 50%, rgb(96, 0, 129) 100%);
+  user-select: none;
+  font-family: "Inter", sans-serif;
+  overflow-y: hidden;
+}
+
+
+
+body.body--light .dialogg {
+  background: rgb(71, 46, 111) !important;
+}
+
+body.body--dark .dialogg {
+  background: rgb(52, 39, 73) !important;
+}
+
+
+
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #2f2f2f4e;
+  border-radius: 16px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #28282862;
+}
