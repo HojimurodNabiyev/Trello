@@ -13,7 +13,7 @@ export const useFormStore = defineStore('form', () => {
 
     const logIn = async (user) => {
         try {
-            const response = await axios.get('http://localhost:10000/users')
+            const response = await axios.get('https://json-server-api-ddcg.onrender.com/users')
             const result = response.data.find(item => item.name === user.name && item.password === user.password)
             console.log(result)
             if (result) {

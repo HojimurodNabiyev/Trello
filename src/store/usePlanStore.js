@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { Notify } from 'quasar'
 import { defineStore } from 'pinia'
 
+
 export const usePlanStore = defineStore('plan', () => {
 
     const planMassiv = ref([])
@@ -11,7 +12,7 @@ export const usePlanStore = defineStore('plan', () => {
         planData.author = JSON.parse(localStorage.getItem('userData'))
 
         try {
-            await fetch('http://localhost:10000/plan', {
+            await fetch('https://json-server-api-ddcg.onrender.com/plan', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(planData)
@@ -25,11 +26,11 @@ export const usePlanStore = defineStore('plan', () => {
 
     const onAddTask = async (pId, taskData) => {
         try {
-            const { data } = await axios.get(`http://localhost:10000/plan/${pId}`)
+            const { data } = await axios.get(`https://json-server-api-ddcg.onrender.com/plan/${pId}`)
             data.tasks.push(taskData)
             const sortTasks = data.tasks.sort((a, b) => a.taskDate.localeCompare(b.taskDate))
             try {
-                await fetch(`http://localhost:10000/plan/${pId}`, {
+                await fetch(`https://json-server-api-ddcg.onrender.com/plan/${pId}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ tasks: sortTasks })
@@ -44,7 +45,7 @@ export const usePlanStore = defineStore('plan', () => {
 
     const onDeletePlan = async (planId) => {
         try {
-            await axios.delete(`http://localhost:10000/plan/${planId}`)
+            await axios.delete(`https://json-server-api-ddcg.onrender.com/plan/${planId}`)
             planMassiv.value = planMassiv.value.filter(item => item.id !== planId)
         } catch (error) {
             Notify.create({ message: 'Tizimda xatolik sabab o\'chira olmadik', color: 'negative', position: 'top', timeout: 800 })
@@ -53,10 +54,10 @@ export const usePlanStore = defineStore('plan', () => {
 
     const onDeleteTask = async (pId, tId) => {
         try {
-            const { data } = await axios.get(`http://localhost:10000/plan/${pId}`)
+            const { data } = await axios.get(`https://json-server-api-ddcg.onrender.com/plan/${pId}`)
             const newData = data.tasks.filter(item => item.id !== tId)
             try {
-                await axios.put(`http://localhost:10000/plan/${pId}`, { ...data, tasks: newData })
+                await axios.put(`https://json-server-api-ddcg.onrender.com/plan/${pId}`, { ...data, tasks: newData })
             } catch (error) {
                 Notify.create({ message: 'Tizimda xatolik sabab o\'chira olmadik', color: 'negative', position: 'top', timeout: 800 })
             }
@@ -67,7 +68,7 @@ export const usePlanStore = defineStore('plan', () => {
 
     const onChangeTask = async (pId, taskData) => {
         try {
-            const { data } = await axios.get(`http://localhost:10000/plan/${pId}`)
+            const { data } = await axios.get(`https://json-server-api-ddcg.onrender.com/plan/${pId}`)
             const taskIndex = data.tasks.findIndex(e => e.id === taskData.id)
             data.tasks[taskIndex].id = taskData.id
             data.tasks[taskIndex].taskTitle = taskData.taskTitle
@@ -75,7 +76,7 @@ export const usePlanStore = defineStore('plan', () => {
             data.tasks[taskIndex].taskDate = taskData.taskDate
             data.tasks[taskIndex].taskStatus = taskData.taskStatus
             try {
-                await axios.patch(`http://localhost:10000/plan/${pId}`, { tasks: data.tasks })
+                await axios.patch(`https://json-server-api-ddcg.onrender.com/plan/${pId}`, { tasks: data.tasks })
             } catch (error) {
                 Notify.create({ message: `Tizimda xatolik \nKeyinroq urinib ko'ring`, position: 'top', color: 'negative', timeout: 1000 })
             }
@@ -86,7 +87,7 @@ export const usePlanStore = defineStore('plan', () => {
 
     const onFilterTasks = async (status) => {
         try {
-            const { data } = await axios.get('http://localhost:10000/plan')
+            const { data } = await axios.get('https://json-server-api-ddcg.onrender.com/plan')
             if (status === 'all') {
                 planMassiv.value = data
             } else {

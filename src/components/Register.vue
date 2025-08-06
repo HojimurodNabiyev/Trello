@@ -49,7 +49,7 @@ const onSubmit = async () => {
     if (formData.value.accept !== true) Notify.create({ message: 'Iltimos, shartlarga rozilik bildiring.', color: 'negative', icon: 'warning', position: 'top', timeout: 800})
     else {
         try {
-            await axios.post('http://localhost:10000/users', formData.value)
+            await axios.post('https://json-server-api-ddcg.onrender.com/users', formData.value)
             formStore.toggleBtn = false
             onReset()
             router.push('/')
