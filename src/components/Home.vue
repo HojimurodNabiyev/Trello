@@ -23,7 +23,7 @@ const formStore = useFormStore()
 const planStore = usePlanStore()
 
 onMounted(async () => {
-    const response = await axios.get('http://localhost:8200/plan')
+    const response = await axios.get('http://localhost:10000/plan')
     planStore.planMassiv = response.data
 })
 
