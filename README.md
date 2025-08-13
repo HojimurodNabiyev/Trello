@@ -34,5 +34,9 @@ cd Trello
 # paketlarni o‘rnatish
 npm install
 
+# serverni ishga tushurish
+npm run json
+ 
 # dev serverni ishga tushurish
 npm run dev
+ 
