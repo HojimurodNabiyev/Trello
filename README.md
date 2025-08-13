@@ -3,10 +3,6 @@ Trello Desk.
 Vue 3, Vite, Quasar va Pinia yordamida yaratilgan Trello uslubidagi Task Manager ilovasi. Foydalanuvchilar tasklar yaratishi, ularni tartibga solishi va ustida ishlashi mumkin.
 
 
-Live Demo:
-[Netlify-](https://nabiyev-trello.netlify.app)
-
-
 Texnologiyalar:
 [Vue 3](https://vuejs.org/) — Composition API asosida
 [Vite](https://vitejs.dev/) — Tez development muhiti
