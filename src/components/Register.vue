@@ -49,7 +49,7 @@ const onSubmit = async () => {
     if (formData.value.accept !== true) Notify.create({ message: 'Iltimos, shartlarga rozilik bildiring.', color: 'negative', icon: 'warning', position: 'top', timeout: 800})
     else {
         try {
-            await axios.post('http://localhost:8200/plan/users', formData.value)
+            await axios.post('http://localhost:8200/users', formData.value)
             formStore.toggleBtn = false
             onReset()
             router.push('/')
