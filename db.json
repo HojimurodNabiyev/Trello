@@ -1,4 +1,39 @@
 {
   "users": [],
-  "plan": []
+  "plan": [
+    {
+      "id": "843f",
+      "title": "sdad",
+      "author": {
+        "id": "63ef",
+        "name": "oybek",
+        "password": "1231231",
+        "aspassword": "1231231",
+        "accept": true,
+        "age": "dajskld@gmail.com"
+      },
+      "tasks": []
+    },
+    {
+      "id": "be6b",
+      "title": "ghfghdfgh",
+      "author": {
+        "id": "63ef",
+        "name": "oybek",
+        "password": "1231231",
+        "aspassword": "1231231",
+        "accept": true,
+        "age": "dajskld@gmail.com"
+      },
+      "tasks": [
+        {
+          "id": "2025-08-12T12:19:27.432Z",
+          "taskTitle": "dfgdfgd",
+          "taskDesc": "dfgdfgdgdfgd",
+          "taskDate": "18:19",
+          "taskStatus": "new"
+        }
+      ]
+    }
+  ]
 }

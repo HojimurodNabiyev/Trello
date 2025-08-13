@@ -23,7 +23,7 @@ const formStore = useFormStore()
 const planStore = usePlanStore()
 
 onMounted(async () => {
-    const response = await axios.get('https://json-server-api-ddcg.onrender.com/plan')
+    const response = await axios.get('http://localhost:8200/plan')
     planStore.planMassiv = response.data
 })
 

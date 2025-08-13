@@ -79,7 +79,7 @@ onMounted(() => {
             planStore.planMassiv.splice(evt.newIndex, 0, movedItem)
 
             massiveeee.forEach(async (obj, index) => {
-                await axios.patch(`https://json-server-api-ddcg.onrender.com/plan/${obj.id}`, planStore.planMassiv[index])
+                await axios.patch(`http://localhost:8200/plan/${obj.id}`, planStore.planMassiv[index])
             })
         }
     })
@@ -101,8 +101,8 @@ watchEffect(() => {
                 const movedTask = planStore.planMassiv[fromIndex].tasks.splice(evt.oldIndex, 1)[0]
                 planStore.planMassiv[toIndex].tasks.splice(evt.newIndex, 0, movedTask)
 
-                axios.put(`https://json-server-api-ddcg.onrender.com/plan/${planStore.planMassiv[fromIndex].id}`, planStore.planMassiv[fromIndex])
-                axios.put(`https://json-server-api-ddcg.onrender.com/plan/${planStore.planMassiv[toIndex].id}`, planStore.planMassiv[toIndex])
+                axios.put(`http://localhost:8200/plan/${planStore.planMassiv[fromIndex].id}`, planStore.planMassiv[fromIndex])
+                axios.put(`http://localhost:8200/plan/${planStore.planMassiv[toIndex].id}`, planStore.planMassiv[toIndex])
             }
         })
     })
